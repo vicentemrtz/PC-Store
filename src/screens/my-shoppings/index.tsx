@@ -4,7 +4,7 @@ import { Button, Grid, Stack, Typography } from '@mui/material';
 
 // Components
 import MyShoppingsContextContainer from './contexts';
-import PaperStack from '../../components/paper-stack';
+import PaperStack from '../../components/shared/paper-stack';
 import ScreenContainer from '../../components/layout/screen-container';
 import GridXS12MD6LG4 from '../../components/layout/_grid/grid-xs12-md6-lg4';
 
@@ -46,7 +46,7 @@ function MyShoppingsContainer () {
 }
 
 function ItemCard (data:UserShoppingsData) {
-  const { amount, brand, category, model, price } = data;
+  const { amount, brand, category, model, price, idItem } = data;
   const { goToItemDetails } = useFunctions();
   return (
     <GridXS12MD6LG4>
@@ -58,7 +58,7 @@ function ItemCard (data:UserShoppingsData) {
           <Typography variant='subtitle2'>PRECIO: {price}</Typography>
           <Typography variant='subtitle2'>CANTIDAD: {amount}</Typography>
         </Stack>
-        <Button variant='contained' onClick={() => goToItemDetails(1)}>Volver a Comprar</Button>
+        <Button variant='contained' onClick={() => goToItemDetails(idItem)}>Volver a Comprar</Button>
       </PaperStack> 
     </GridXS12MD6LG4>
   )

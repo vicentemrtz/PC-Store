@@ -25,7 +25,7 @@ export default function SimpleSelect (props:Props) {
 
   function handleOptions () {
     const extraOptions = (hasDefaultOption) ? [firstOption] : []
-    setSavedOptions([...options, ...extraOptions]);
+    setSavedOptions([...extraOptions, ...options]);
   }
 
   useEffect(handleOptions, [options])

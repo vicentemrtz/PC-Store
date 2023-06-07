@@ -4,7 +4,7 @@ import { Button, Grid, Stack, TextField, Typography } from "@mui/material";
 
 // Components
 import HomeContextContainer from "./contexts";
-import PaperStack from "../../components/paper-stack";
+import PaperStack from "../../components/shared/paper-stack";
 import SimpleSelect from "../../components/form/simple-select";
 import ScreenContainer from "../../components/layout/screen-container";
 import GridXS12MD6LG4 from "../../components/layout/_grid/grid-xs12-md6-lg4";

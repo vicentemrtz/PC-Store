@@ -14,6 +14,13 @@ const FlexStyles = {
   ACenterJCenter: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  HStackACenterJEnd: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    columnGap:2,
   }
 
 }

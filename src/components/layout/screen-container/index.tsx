@@ -43,4 +43,4 @@ const TopBarTitleProps = {
   paddingLeft:1
 } as any;
 
-const topButtonList = [{ route:'/home', text:'Inicio' }, { route:'/my-shoppings', text:'Mis Compras' }]
+const topButtonList = [{ route:'/', text:'Inicio' }, { route:'/my-shoppings', text:'Mis Compras' }]

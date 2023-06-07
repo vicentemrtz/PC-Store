@@ -6,6 +6,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // Components
 import MainContext from './contexts';
 
+// Dialogs
+import MessageDialog from './dialogs/message-dialog';
+import NoEthereumDialog from './dialogs/no-ethereum-dialog';
+
 // Hooks
 import useHandleContract from './hooks/use-handle-contract';
 
@@ -28,7 +32,11 @@ function MainContainer () {
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <MainContext>
+
       <MainContainer/>
+      <NoEthereumDialog/>
+      <MessageDialog/>
+
     </MainContext>
   </React.StrictMode>,
 )

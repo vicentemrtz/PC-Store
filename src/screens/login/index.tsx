@@ -4,7 +4,7 @@ import { Button, Grid, Stack, TextField } from "@mui/material";
 
 // Components
 import LoginScreenContextContainer from "./contexts";
-import PaperStack from "../../components/paper-stack";
+import PaperStack from "../../components/shared/paper-stack";
 import GridXS12MD6LG4 from "../../components/layout/_grid/grid-xs12-md6-lg4";
 
 // Contexts

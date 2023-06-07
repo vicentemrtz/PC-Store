@@ -5,7 +5,7 @@ export default function useFunctions () {
 
   const navigate = useNavigate();
 
-  function goToItemDetails (id:number) {
+  function goToItemDetails (id:string) {
     navigate(`/item-details/${id}`)
   }
 
