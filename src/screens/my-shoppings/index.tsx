@@ -1,4 +1,5 @@
 // Modules
+import { useContext } from 'react';
 import { Button, Grid, Stack, Typography } from '@mui/material';
 
 // Components
@@ -7,12 +8,15 @@ import PaperStack from '../../components/paper-stack';
 import ScreenContainer from '../../components/layout/screen-container';
 import GridXS12MD6LG4 from '../../components/layout/_grid/grid-xs12-md6-lg4';
 
-// Hooks
-import useOnCreate from './functions/onCreate';
-import useFunctions from './functions';
-import { useContext } from 'react';
+// Contexts
 import { ValuesContext } from './contexts/values';
+
+// Data
 import { UserShoppingsData } from '../../types/item';
+
+// Hooks
+import useFunctions from './functions';
+import useOnCreate from './functions/onCreate';
 
 export default function MyShoppingsScreen () {
   return (
@@ -32,7 +36,7 @@ function MainContainer () {
 }
 
 function MyShoppingsContainer () {
-  const { isLoadingGetMyShoppings } = useOnCreate();
+  useOnCreate();
   const { userShoppings } = useContext(ValuesContext);
   return (
     <Grid container spacing={2}>

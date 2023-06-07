@@ -11,4 +11,6 @@ export type ValuesContextPayload = {
   setBrands: React.Dispatch<React.SetStateAction<OptionData[]>>;
   categories: OptionData[];
   setCategories: React.Dispatch<React.SetStateAction<OptionData[]>>;
+  isLoadingGetItems: boolean;
+  setIsLoadingGetItems: React.Dispatch<React.SetStateAction<boolean>>;
 }

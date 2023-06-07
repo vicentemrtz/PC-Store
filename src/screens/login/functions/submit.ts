@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function useSubmit () {
 
-  const [ isLoadingLogin, setIsLoadingLogin ] = useState(false);
+  const [ isLoadingLogin ] = useState(false);
   
   function startSubmitLogin () {
 

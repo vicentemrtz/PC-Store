@@ -11,13 +11,11 @@ import useHandleContract from './hooks/use-handle-contract';
 
 // Screens
 import HomeScreen from './screens/home';
-import LoginScreen from './screens/login';
 import ItemDetailsScreen from './screens/item-details';
 import MyShoppingsScreen from './screens/my-shoppings';
 
 const router = createBrowserRouter([
-  { path: "/", element: <LoginScreen/> },
-  { path: "/home", element: <HomeScreen/> },
+  { path: "/", element: <HomeScreen/> },
   { path: "/item-details/:id", element: <ItemDetailsScreen/> },
   { path: "/my-shoppings", element: <MyShoppingsScreen/> },
 ]);

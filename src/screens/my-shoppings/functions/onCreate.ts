@@ -10,7 +10,7 @@ import useGet from './get';
 export default function useOnCreate () {
   
   const { contractInstance, account } = useContext(ContractContext);
-  const { startGetMyShoppings, isLoadingGetMyShoppings } = useGet();
+  const { startGetMyShoppings } = useGet();
 
   function onCreate () {
     if (contractInstance == null || account == null) return
@@ -18,9 +18,5 @@ export default function useOnCreate () {
   }
 
   useEffect(onCreate, [contractInstance, account]);
-
-  return {
-    isLoadingGetMyShoppings
-  }
 
 }

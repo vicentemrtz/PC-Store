@@ -10,6 +10,7 @@ export const ValuesContext = createContext({} as ValuesContextPayload);
 
 export default function ValuesContextContainer ({ children }:any) {
 
+  const [ isLoadingGetItems, setIsLoadingGetItems ] = useState(true);
   const [ items, setItems ] = useState<GetItemData[]>([]);
   const [ itemsToShow, setItemsToShow ] = useState<GetItemData[]>([]);
   const [ brands, setBrands ] = useState<OptionData[]>([]);
@@ -19,7 +20,8 @@ export default function ValuesContextContainer ({ children }:any) {
     items, setItems,
     itemsToShow, setItemsToShow,
     brands, setBrands,
-    categories, setCategories
+    categories, setCategories,
+    isLoadingGetItems, setIsLoadingGetItems
   }
   
   return (

@@ -13,7 +13,7 @@ import { GetItemData } from '../../../types/item';
 export default function useGet () {
   
   const { getItems } = useValues();
-  const { setItems, setItemsToShow, setCategories, setBrands } = useContext(ValuesContext);
+  const { setItems, setItemsToShow, setCategories, setBrands, setIsLoadingGetItems } = useContext(ValuesContext);
   
   async function startGetItems () {
     try {
@@ -23,8 +23,10 @@ export default function useGet () {
       setItemsToShow(mappedItems);
       getBrands(mappedItems);
       getCategories(mappedItems);
+      setIsLoadingGetItems(false);
     } catch (err:any) {
       console.log(err);
+      setIsLoadingGetItems(false);
     }
   }
 

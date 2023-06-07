@@ -1,5 +1,5 @@
 // Modules
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 // Contexts
 import { ValuesContext } from "../contexts/values";
@@ -10,9 +10,8 @@ import { UserShoppingsData } from "../../../types/item";
 
 export default function useGet () {
 
-  const { setUserShoppings } = useContext(ValuesContext);
+  const { setUserShoppings, setIsLoadingGetMyShoppings } = useContext(ValuesContext);
   const { contractInstance, account } = useContext(ContractContext);
-  const [ isLoadingGetMyShoppings ] = useState(false);
   
   async function getItemsIds () {
     const response = await contractInstance.methods.getUserShoppings(account).call();
@@ -20,11 +19,16 @@ export default function useGet () {
   }
 
   async function startGetMyShoppings () {
-    const ids = await getItemsIds();
-    const itemPromises = ids.map((id: string) => contractInstance.methods.getTicketById(id).call());
-    const itemsData = await Promise.all(itemPromises);
-    const mappedItems = itemsData.map((item) => handleItemData(item));
-    setUserShoppings(mappedItems);
+    try {
+      const ids = await getItemsIds();
+      const itemPromises = ids.map((id: string) => contractInstance.methods.getTicketById(id).call());
+      const itemsData = await Promise.all(itemPromises);
+      const mappedItems = itemsData.map((item) => handleItemData(item));
+      setUserShoppings(mappedItems);
+      setIsLoadingGetMyShoppings(false);
+    } catch (err:any) {
+      setIsLoadingGetMyShoppings(false);
+    }
   }
 
   function handleItemData (item:any):UserShoppingsData {
@@ -33,8 +37,7 @@ export default function useGet () {
   }
 
   return {
-    startGetMyShoppings,
-    isLoadingGetMyShoppings
+    startGetMyShoppings
   }
 
 }

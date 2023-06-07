@@ -9,9 +9,11 @@ export const ValuesContext = createContext({} as ValuesContextPayload);
 
 export default function ValuesContextContainer ({ children }:any) {
 
+  const [ isLoadingGetMyShoppinngs, setIsLoadingGetMyShoppings ] = useState(true);
   const [ userShoppings, setUserShoppings ] = useState<UserShoppingsData[]>([]);
 
   const payload:ValuesContextPayload = {
+    isLoadingGetMyShoppinngs, setIsLoadingGetMyShoppings,
     userShoppings, setUserShoppings
   }
   

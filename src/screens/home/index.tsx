@@ -1,6 +1,6 @@
 // Modules
 import { useContext } from "react";
-import { Button, Grid, IconButton, Stack, TextField, Typography } from "@mui/material";
+import { Button, Grid, Stack, TextField, Typography } from "@mui/material";
 
 // Components
 import HomeContextContainer from "./contexts";
@@ -43,7 +43,7 @@ function MainContainer () {
 
 function FilterContainer () {
 
-  const { brands, categories } = useContext(ValuesContext);
+  const { brands, categories, isLoadingGetItems } = useContext(ValuesContext);
   const { filterForm } = useContext(FormContext);
   const { form, handleOnChange } = filterForm;
   const { brand_filter, category_filter, model_filter } = form;
@@ -58,6 +58,7 @@ function FilterContainer () {
           value={brand_filter}
           onChange={handleOnChange}
           options={brands}
+          disabled={isLoadingGetItems}
         />
 
         <SimpleSelect 
@@ -66,6 +67,7 @@ function FilterContainer () {
           onChange={handleOnChange}
           value={category_filter}
           options={categories}
+          disabled={isLoadingGetItems}
         />
 
         <TextField 
@@ -75,6 +77,7 @@ function FilterContainer () {
           value={model_filter}
           size="small"
           variant="filled"
+          disabled={isLoadingGetItems}
           fullWidth
         />
 

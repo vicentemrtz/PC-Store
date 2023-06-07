@@ -26,12 +26,6 @@ function TopBar () {
   )
 }
 
-function LoginButton () {
-  return (false) 
-    ? <Button variant='contained' size='small' color='success'>Iniciar Sesión</Button>
-    : <Button variant='contained' size='small' color='error'>Cerrar Sesión</Button>
-}
-
 function TopBarButtonContainer () {
   const navigate = useNavigate();
   return (
